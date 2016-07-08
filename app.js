@@ -1,9 +1,9 @@
 // require and use express
 
-var express = require ('express')
+var express = require ('express');
 var app = express();
 
-var port = process.env.PORT
+var port = process.env.PORT;
 
 // Path module to allow concatenation of paths
 
@@ -26,7 +26,12 @@ var validateURL = require('./validateURL.js');
 
 // Create a connection to our MongoDb
 
-mongoose.connect('mongodb://'+config.db.host + '/' + config.db.name);
+//mongoose.connect('mongodb://'+config.db.host + '/' + config.db.name);
+
+
+// Connection for Heroku app
+
+mongoose.connect('mongodb://heroku_5z06p34m:1jq8h0npqnl15rrtkl474ghlcj@ds017165.mlab.com:17165/heroku_5z06p34m');
 
 
 // handles JSON bodies
@@ -37,19 +42,25 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Serves files in our public directory
 
-app.use("/public", express.static(__dirname + "/public"))
+app.use("/public", express.static(__dirname + "/public"));
 
 
 // route to serve the homepage
+
+
+app.get('/favicon.ico', function (request, response){
+    
+});
+
 
 app.get ('/', function (request,response){
     
 
     
-    response.sendFile(path.join(__dirname + "/views/index.html"))
+    response.sendFile(path.join(__dirname + "/views/index.html"));
     
     
-})
+});
 
 
 // route to create and return a shortened URL given a long URL
@@ -63,7 +74,7 @@ app.get("/new/:urlid*",function (request, response){
  
  if(!validateURL.checkURL(longUrl)){
      
-          console.log(validateURL.checkURL(longUrl))     
+          console.log(validateURL.checkURL(longUrl));    
           response.send ('This is not a valid URL');   
      
      
