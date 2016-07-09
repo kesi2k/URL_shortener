@@ -26,12 +26,12 @@ var validateURL = require('./validateURL.js');
 
 // Create a connection to our MongoDb
 
-//mongoose.connect('mongodb://'+config.db.host + '/' + config.db.name);
+mongoose.connect('mongodb://'+config.db.host + '/' + config.db.name);
 
 
 // Connection for Heroku app
 
-mongoose.connect('mongodb://heroku_5z06p34m:1jq8h0npqnl15rrtkl474ghlcj@ds017165.mlab.com:17165/heroku_5z06p34m');
+//mongoose.connect('mongodb://heroku_5z06p34m:1jq8h0npqnl15rrtkl474ghlcj@ds017165.mlab.com:17165/heroku_5z06p34m');
 
 
 // handles JSON bodies
@@ -49,6 +49,10 @@ app.use("/public", express.static(__dirname + "/public"));
 
 
 app.get('/favicon.ico', function (request, response){
+     response.writeHead(200, {'Content-Type': 'image/x-icon'} );
+     response.end();
+    console.log('favicon requested');
+    return;
     
 });
 
