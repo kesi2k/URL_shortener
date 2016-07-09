@@ -8,7 +8,12 @@ config.db = {};
  i.e.: http://localhost:3000/3Ys
  */
  
-config.webhost = 'https://url-shortener-3-kesi2k.c9users.io';
+//config.webhost = 'https://url-shortener-3-kesi2k.c9users.io';
+
+//On Heroku
+
+config.webhost = 'https://kesi-urlshortener.herokuapp.com'
+
 
 // MongoDB host and database name
 
