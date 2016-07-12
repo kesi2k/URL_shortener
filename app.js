@@ -31,7 +31,7 @@ var validateURL = require('./validateURL.js');
 
 // Connection for Heroku app
 
-mongoose.connect('mongodb://heroku_5z06p34m:1jq8h0npqnl15rrtkl474ghlcj@ds017165.mlab.com:17165/heroku_5z06p34m');
+mongoose.connect('mongodb://heroku_7lqblpmv:gh361jstgj7e63rr1qcq9ujij5@ds011268.mlab.com:11268/heroku_7lqblpmv');
 
 
 // handles JSON bodies
